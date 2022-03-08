@@ -1,0 +1,46 @@
+This archive, UTILSRC.ZIP contains the sources for the following BOOM
+utilities:
+
+bin2c.exe	convert a binary file to a C array for inclusion in
+                INFO.C as a predefined lump
+
+bmp2c.exe	convert a .BMP file for a patch or a graphic to a C
+                array for inclusion in INFO.C as a predefined lump
+
+trigcalc.exe    compute a generalized linedef type number based on 
+                answers to questions about what it does
+
+cmaptool.exe	generate a .BMP file containing all colors of the the
+                DOOM palette, standard or custom, and after editing
+                this BMP file, create a colormap lump that effects
+                the corresponding colormap, based on the standard or
+		a custom colormap.
+
+keycode.exe	output the Allegro keycode when a key is pressed
+
+mus2mid.exe	convert a .MUS file (or a list of possibly wildcarded
+                .MUS files) to the corresponding .MID file(s)
+
+maktrlmp.exe	convert a TRANMAP.DAT file output by boom to a .LMP
+                file by the same name for use as a custom
+                translucency lump.
+
+swantbls.exe	convert a text file that defines the switches and
+                animated textures and flats to the lumps SWITCHES.LMP
+		and ANIMATED.LMP for use in a BOOM pwad.
+
+todos.exe	convert a Unix format file to a Dos format file (in Dos)
+
+
+tounix.exe      convert a Dos format file to a Unix format file (in Dos)
+
+The file defswani.dat is an example input file for swantbls that
+defines the default switches and animations. Use it as a syntax
+example.
+
+The file makutil.bat will compile all the utilities above.
+
+
+The sources for CLED, MUSPUT, and STAT will be made available at a
+future date along with the sources for the PATCHER wad builder
+utility, as they are sub-programs of it.
