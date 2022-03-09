@@ -10,7 +10,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <utime.h>
+#if defined __APPLE__
+#include <string.h>
+#include <sys/stat.h>
+#else
 #include <sys\stat.h>
+#endif
 
 #define CR 0xd
 #define LF 0xa

@@ -13,7 +13,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#if !defined __APPLE__
 #include <malloc.h>
+#endif
 
 // use unwrapped free directly
 
@@ -1123,7 +1125,11 @@ void ReadBMP(BYTE **out,int *logw,int *realw,int *logh,char *rbmpname,RGBQUAD *p
 
 		n = (*logw)*(*logh);
 
+#if !defined __APPLE__
 		buffer = malloc(n);
+#else
+		buffer = (char *)malloc(n);
+#endif
 		fseek(st,bmfh.bfOffBits,SEEK_SET);
 		fread(buffer,n,1,st);
 
@@ -1208,7 +1214,11 @@ int AddDirEntry(WadDir *wdd,unsigned long iresptr, unsigned long ireslen, char *
 	if (wdd->nentries>=wdd->allentries)
 	{
 		wdd->allentries += 256;
+#if !defined __APPLE__
 		wdd->dirp = realloc(wdd->dirp,wdd->allentries*sizeof(WadDirEntry));
+#else
+		wdd->dirp = (char *)realloc(wdd->dirp,wdd->allentries*sizeof(WadDirEntry));
+#endif
 	}
 
 	strcpy(resn,Str8(iresname));

@@ -9,7 +9,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#if !defined __APPLE__
 #include <malloc.h>
+#endif
 #include <string.h>
 
 //
@@ -66,7 +68,11 @@ int main(int argc,char **argv)
 	st=fopen(filename,"rb");
 	if (st)
 	{
+#if !defined __APPLE__
 		p = malloc(65536);				  // output is always exactly 64K in size
+#else
+		p = (char *)malloc(65536);				  // output is always exactly 64K in size
+#endif
 		if (p)
 		{
 			fseek(st,257,SEEK_SET);	  // skip past the header

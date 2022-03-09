@@ -8,7 +8,6 @@
 ////////////////////////////////////////////////////////////////////////////
 
 #include <stdio.h>
-#include "conio.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
@@ -434,7 +433,7 @@ top:
 		ch = 0;
 		printf("Floor, Ceil, Door, Keydoor, Lift, Stair, or cRrusher? [F/c/d/k/l/s/r]: ");
 		fflush(stdout);
-		ch = getche();
+		ch = getchar();
 		printf("\n");
 
 		switch (tolower(ch))
@@ -449,14 +448,14 @@ top:
 				ch = 0;
 				printf("Crushing [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y') trig += (1<<FloorCrushShift);
 
 				ch = 0;
 				printf("Speed [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<FloorSpeedShift);
@@ -464,7 +463,7 @@ top:
 				ch = 0;
 				printf("Type of change [0=none, 1=zero type 2=text only 3=text & type]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<FloorChangeShift);
@@ -474,7 +473,7 @@ top:
 					ch = 0;
 					printf("Model for change [T(rigger)/n(umeric)]: ");
 					fflush(stdout);
-					ch=getche();
+					ch=getchar();
 					printf("\n");
 					if (tolower(ch)=='n')	trig += (1<<FloorModelShift);
 				}
@@ -483,7 +482,7 @@ top:
 					ch = 0;
 					printf("Allow monster activation [N/y]: ");
 					fflush(stdout);
-					ch=getche();
+					ch=getchar();
 					printf("\n");
 					if (tolower(ch)=='y')	trig += (1<<FloorModelShift);
 				}
@@ -494,7 +493,7 @@ top:
 				else
 					printf("Ceiling Target [0:HnC 1:LnC, 2:NnC, 3:HnF, 4:F 5:sT 6:24 7:32]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>7) ch=7;
 				trig += (ch<<FloorTargetShift);
@@ -502,7 +501,7 @@ top:
 				ch = 0;
 				printf("Direction [U/d]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)!='d') trig += (1<<FloorDirectionShift);
 
@@ -515,7 +514,7 @@ top:
 				ch = 0;
 				printf("Kind of Door [0=Open-Close, 1=Open, 2=Close-Open, 3=Close]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<DoorKindShift);
@@ -523,7 +522,7 @@ top:
 				ch = 0;
 				printf("Speed of Door [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<DoorSpeedShift);
@@ -531,14 +530,14 @@ top:
 				ch = 0;
 				printf("Allow monster activation [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<DoorMonsterShift);
 
 				ch = 0;
 				printf("Door Delay [0=1sec, 1=4sec, 2=9sec, 3=30sec]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<DoorDelayShift);
@@ -552,7 +551,7 @@ top:
 				ch = 0;
 				printf("Kind of Door [0=Open-Close, 1=Open]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>1) ch=1;
 				trig += (ch<<LockedKindShift);
@@ -560,7 +559,7 @@ top:
 				ch = 0;
 				printf("Speed of Door [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<LockedSpeedShift);
@@ -568,7 +567,7 @@ top:
 				ch = 0;
 				printf("Door Key [0=Any, 1=RC, 2=BC, 3=YC, 4=RS, 5=BS, 6=YS, 7=All]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>7) ch=7;
 				trig += (ch<<LockedKeyShift);
@@ -576,7 +575,7 @@ top:
 				ch = 0;
 				printf("Are skull and card keys the same, for this door? [Y/n]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)!='n')	trig += (1<<LockedNKeysShift);
 
@@ -589,7 +588,7 @@ top:
 				ch = 0;
 				printf("Target [0:LnF 1:NnF, 2:LnC, 3:Perpetual]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<LiftTargetShift);
@@ -597,7 +596,7 @@ top:
 				ch = 0;
 				printf("Lift Delay [0=1 sec, 1=3 sec, 2=5 sec, 3=10 sec]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<LiftDelayShift);
@@ -605,14 +604,14 @@ top:
 				ch = 0;
 				printf("Allow monster activation [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<LiftMonsterShift);
 
 				ch = 0;
 				printf("Speed of Lift [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<LiftSpeedShift);
@@ -626,14 +625,14 @@ top:
 				ch = 0;
 				printf("Direction [U/d]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)!='d') trig += (1<<StairDirectionShift);
 
 				ch = 0;
 				printf("Step Size [0=4, 1=8, 2=16, 3=24]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<StairStepShift);
@@ -642,21 +641,21 @@ top:
 				ch = 0;
 				printf("Ignore texture difference? [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<StairIgnoreShift);
 
 				ch = 0;
 				printf("Allow monster activation [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<StairMonsterShift);
 
 				ch = 0;
 				printf("Speed of Stair [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<StairSpeedShift);
@@ -671,21 +670,21 @@ top:
 				ch = 0;
 				printf("Silent Crusher? [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<CrusherSilentShift);
 
 				ch = 0;
 				printf("Allow monster activation [N/y]: ");
 				fflush(stdout);
-				ch=getche();
+				ch=getchar();
 				printf("\n");
 				if (tolower(ch)=='y')	trig += (1<<CrusherMonsterShift);
 
 				ch = 0;
 				printf("Speed of Crusher [0=Slow, 1=Normal, 2=Fast, 3=Turbo]: ");
 				fflush(stdout);
-				ch=getche()-'0';
+				ch=getchar()-'0';
 				printf("\n");
 				if (0>ch) ch = 0; if (ch>3) ch=3;
 				trig += (ch<<CrusherSpeedShift);
@@ -702,7 +701,7 @@ top:
 			ch = 0;
 			printf("Trigger Type [0=W1, 1=WR, 2=S1, 3=SR, 4=G1, 5=GR, 6=D1, 7=DR]: ");
 			fflush(stdout);
-			ch=getche()-'0';
+			ch=getchar()-'0';
 			printf("\n");
 			if (0>ch) ch = 0; if (ch>7) ch=7;
 			trig += (ch<<TriggerTypeShift);
@@ -712,7 +711,7 @@ top:
 			p = ParseGeneralizedLinedef(trig);
 			printf("\nFunctional description: %s, is this correct? [Y/n/Q(uit)]: ",p);
 			fflush(stdout);
-			ch=getche();
+			ch=getchar();
 			printf("\n");
 			if (tolower(ch)=='n')
 				goto top;

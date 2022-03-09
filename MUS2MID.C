@@ -28,7 +28,9 @@ static const char rcsid[] = "$Id: mmus2mid.c,v 1.10 1998/05/10 23:00:43 jim Exp 
 #include <string.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#if !defined __APPLE__
 #include <malloc.h>
+#endif
 #include "allegro.h"
 #include "mus2mid.h"
 

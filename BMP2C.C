@@ -12,7 +12,9 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#if !defined __APPLE__
 #include <malloc.h>
+#endif
 
 #define XPARENT (0xf7)	/* palette index representing transparent in BMP */
 
@@ -198,8 +200,11 @@ void ReadBMP(BYTE **out,int *logw,int *realw,int *logh,char *bmpname)
 		*logh = bmih.biHeight;
 
 		n = (*logw)*(*logh);
-
+#if !defined __APPLE__
 		buffer = malloc(n);
+#else
+		buffer = (char *)malloc(n);
+#endif
 		fseek(st,bmfh.bfOffBits,SEEK_SET);
 		fread(buffer,n,1,st);
 
